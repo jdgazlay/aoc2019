@@ -7,5 +7,5 @@ I wanted to write this in C# at first, but had some issue installing it on the c
 ## Part 2 - Javascript
 This part proved a bit harder than I expected, because I wanted to use the [BigInt](https://tc39.es/ecma262/#sec-bigint-objects) feature in javascript to get the correct answer, but unfortunately it wasn't available in base Typescript & ts-node. BigInt was available in Node 10.4.0. So I converted the typescript to javascript and moved on from there. I was able to successfully get the answer with javascript BigInt AND without any integer overflows!
 
-## day01 - C#
+## C#
 After I had ventured through all of the other stuff in TS & JS, I felt a little defeated and revisited my C# aspirations and was able to complete the entire day one module in C#.
