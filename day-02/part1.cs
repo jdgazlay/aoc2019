@@ -1,26 +1,31 @@
 using System;
-using System.Linq;
 
 class GravityAssist {
 
+    private static int TERMINATE_OPCODE = 99;
+    private static int ADD_OPCODE = 1;
+    private static int MULTIPLY_OPCODE = 2;
+    private static int INSTRUCTION_SET = 4;
     public static int Intcode(int[] memory, int[] inputs)
     {
         int instructionPointer = 0;
-        memory[1] = inputs[0];
-        memory[2] = inputs[1];
+        int[] instructions = new int[memory.Length];
+        Array.Copy(memory, instructions, memory.Length);
+        instructions[1] = inputs[0];
+        instructions[2] = inputs[1];
 
-        while (memory[instructionPointer] != 99)
+        while (instructions[instructionPointer] != TERMINATE_OPCODE)
         {
-            if (memory[instructionPointer] == 1)
-            {
-                memory[memory[instructionPointer + 3]] = memory[memory[instructionPointer + 1]] + memory[memory[instructionPointer + 2]];
-            } else if (memory[instructionPointer] == 2)
-            {
-                memory[memory[instructionPointer + 3]] = memory[memory[instructionPointer + 1]] * memory[memory[instructionPointer + 2]];
-            }
-            instructionPointer += 4;
+            if (instructions[instructionPointer] == ADD_OPCODE)
+                instructions[instructions[instructionPointer + 3]] = instructions[instructions[instructionPointer + 1]] + instructions[instructions[instructionPointer + 2]];
+            else if (instructions[instructionPointer] == MULTIPLY_OPCODE)
+                instructions[instructions[instructionPointer + 3]] = instructions[instructions[instructionPointer + 1]] * instructions[instructions[instructionPointer + 2]];
+            else if (instructions[instructionPointer] != 99)
+                return 0;
+
+            instructionPointer += INSTRUCTION_SET;
         }
-        return memory[0];  // address 0 is the output
+        return instructions[0];
     }
 
     static void Main()
