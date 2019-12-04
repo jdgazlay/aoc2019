@@ -32,32 +32,27 @@ class GravityAssist
 
     public static int findInputsForOutput(int[] memory, int requiredOutput)
     {
-        int noun = 0;
-        int verb = 0;
         int[] inputs = new int[2];
-        bool found = false;
 
-        for (noun = 0; noun < 99; noun++)
+        Func<int> loop = delegate
         {
-            inputs[0] = noun;
-
-            for (verb = 0; verb < 99; verb++)
+            for (int noun = 0; noun < 99; noun++)
             {
-                inputs[1] = verb;
-                int output = Intcode(memory, inputs);
+                inputs[0] = noun;
 
-                if (output == requiredOutput)
+                for (int verb = 0; verb < 99; verb++)
                 {
-                    found = true;
-                    break;
+                    inputs[1] = verb;
+                    int output = Intcode(memory, inputs);
+
+                    if (output == requiredOutput)
+                        return 100 * noun + verb;
                 }
             }
+            return 0;
+        };
 
-            if (found)
-                break;
-        }
-
-        return 100 * noun + verb;
+        return loop();
     }
 
     static void Main()
