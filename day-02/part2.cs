@@ -7,6 +7,7 @@ class GravityAssist
     private static int ADD_OPCODE = 1;
     private static int MULTIPLY_OPCODE = 2;
     private static int INSTRUCTION_SET = 4;
+
     public static int Intcode(int[] memory, int[] inputs)
     {
         int instructionPointer = 0;
