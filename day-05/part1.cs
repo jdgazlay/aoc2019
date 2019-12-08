@@ -12,9 +12,6 @@ class GravityAssist
     private static int input;
     private static int output;
 
-    //TODO implement parameter modes
-    //TODO implement variable instruction set
-
     public static int Intcode(int[] memory)
     {
         int instructionPointer = 0;
