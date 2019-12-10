@@ -4,6 +4,7 @@ namespace PuzzleInput
     {
         // int answer = 42;
         public static string[] TestInputPart1 = new string[] {"COM)B","B)C","C)D","D)E","E)F","B)G","G)H","D)I","E)J","J)K","K)L"};
+        public static string[] TestInputPart2 = new string[] {"COM)B","B)C","C)D","D)E","E)F","B)G","G)H","D)I","E)J","J)K","K)L","K)YOU","I)SAN"};
 
         public static string[] PuzzleInput = new string[] {
             "797)67Y",
