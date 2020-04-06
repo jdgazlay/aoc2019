@@ -9,3 +9,22 @@ This part proved a bit harder than I expected, because I wanted to use the [BigI
 
 ## C#
 After I had ventured through all of the other stuff in TS & JS, I felt a little defeated and revisited my C# aspirations and was able to complete the entire day one module in C#.
+
+
+
+Notes for me:
+compile c# code
+```bash
+mcs -out:<output filename> <input filename>
+```
+
+Run C# code
+```bash
+mono <output filename from above>
+```
+
+Example:
+```bash
+mcs -out:part1.exe part1.cs
+mono part1.exe
+```
